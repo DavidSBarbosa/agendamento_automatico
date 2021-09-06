@@ -1,6 +1,5 @@
 from tkinter.filedialog import askopenfilename
 from docx import Document
-from docx.shared import Inches
 import pandas as pd
 
 diretorio_tabela = askopenfilename()
@@ -19,9 +18,7 @@ df_list = df.values.tolist()
 document = Document()
 document.add_heading('Santa Missa ' + data_missa + " às " + hora_missa, 0)
 
-tam = len(df_list)
+for x in df_list:
+    document.add_paragraph(x, style ='List Bullet')
 
-for x in range(tam):
-    document.add_paragraph(df_list[x], style ='List Bullet')
-
-document.save(nome_do_arquivo)
+document.save(nome_do_arquivo + '.docx')
