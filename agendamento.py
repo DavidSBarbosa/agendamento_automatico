@@ -6,7 +6,6 @@ import re
 
 diretorio_tabela = askopenfilenames()
 for diretorio_atual in diretorio_tabela:
-    print(diretorio_atual)
     nome_tabela = ntpath.basename(diretorio_atual)
 
     padrao_data = re.findall(r"([0-9]{8})\w", nome_tabela)
